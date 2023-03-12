@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../Components/Header";
+import Repositories from "./Repositories";
 import UserContext from "../utilities/UserContext";
 
 const HomePage = () => {
@@ -18,11 +19,11 @@ const HomePage = () => {
     }
     fetchData();
   }, []);
-
   return (
     <>
       <Header />
-      <div className="bg-gray-900 min-h-screen flex flex-row justify-center items-center">
+      {sdata !== ""}
+      <div className="bg-gray-900 min-h-screen flex flex-row justify-evenly items-center">
         <div className=" rounded-xl overflow-hidden bg-gray-800 shadow-lg">
           <div className="px-6 py-8">
             <div className="flex flex-col items-center justify-center">
@@ -47,9 +48,11 @@ const HomePage = () => {
                   </span>
                 </Link>
               </div>
-              <div className="mt-4 text-gray-200">
-                Public Repos: {sdata.public_repos}
-              </div>
+              <Link to="/repositories">
+                <div className="mt-4 font-semibold text-gray-200">
+                  Public Repositories: {sdata.public_repos}
+                </div>
+              </Link>
               <button className="bg-gray-200 px-4 py-2 rounded-md mt-4">
                 <a href={sdata.html_url} target="_blank">
                   <span className="font-bold text-gray-900">View Profile</span>

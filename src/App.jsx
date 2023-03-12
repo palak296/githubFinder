@@ -5,6 +5,7 @@ import HomePage from "./Pages/HomePage";
 import { UserProvider } from "./utilities/UserContext";
 import Following from "./Pages/Following";
 import Followers from "./Pages/Followers";
+import Repositories from "./Pages/Repositories";
 
 const App = () => {
   return (
@@ -34,6 +35,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/following",
         element: <Following />,
+      },
+      {
+        path: "/repositories",
+        element: <Repositories />,
       },
     ],
   },
