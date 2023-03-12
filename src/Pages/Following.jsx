@@ -1,20 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import UserContext from "../utilities/UserContext";
 import { useNavigate } from "react-router-dom";
+import Header from "../Components/Header";
 
-const Followers = () => {
+const Following = () => {
   const [fdata, setfdata] = useState([]);
   const userContext = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleClick = (user) => {
     userContext.setUsername(user);
-
     navigate("/home");
   };
 
   useEffect(() => {
-    console.log(userContext.username);
     async function fetchFdata() {
       const data = await fetch(
         `https://api.github.com/users/${userContext.username}/following`
@@ -24,25 +23,34 @@ const Followers = () => {
     }
     fetchFdata();
   }, []);
+
   return (
     <>
-      {fdata.map((i) => {
-        return (
-          <div>
-            <div
-              className="cursor-pointer"
-              onClick={() => {
-                handleClick(i.login);
-              }}
-            >
-              {i.login}
-            </div>
-            <img src={i.avatar_url} alt="" />
-          </div>
-        );
-      })}
+      <Header />
+      <div className="flex justify-center items-center h-screen bg-slate-500">
+        <div className="bg-gray-800 w-full max-w-md rounded-md p-8">
+          {fdata.map((i) => {
+            return (
+              <div
+                key={i.id}
+                className="flex items-center mb-3 cursor-pointer"
+                onClick={() => {
+                  handleClick(i.login);
+                }}
+              >
+                <img
+                  className="w-8 h-8 rounded-full mr-2"
+                  src={i.avatar_url}
+                  alt="avatar"
+                />
+                <div className="text-gray-200">{i.login}</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </>
   );
 };
 
-export default Followers;
+export default Following;
