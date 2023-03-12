@@ -38,24 +38,24 @@ const HomePage = () => {
               </div>
               <div className="flex justify-evenly mt-4">
                 <Link to="/follower">
-                  <span className="font-semibold text-gray-200">
+                  <span className="font-semibold text-gray-200 hover:text-yellow-500">
                     Followers: {sdata.followers}
                   </span>
                 </Link>
                 <Link to="/following">
-                  <span className="pl-10 font-semibold text-gray-200">
+                  <span className="pl-10 font-semibold text-gray-200 hover:text-yellow-500">
                     Following: {sdata.following}
                   </span>
                 </Link>
               </div>
               <Link to="/repositories">
-                <div className="mt-4 font-semibold text-gray-200">
+                <div className="mt-4 font-semibold text-gray-200 hover:text-yellow-500">
                   Public Repositories: {sdata.public_repos}
                 </div>
               </Link>
-              <button className="bg-gray-200 px-4 py-2 rounded-md mt-4">
+              <button className="bg-gray-200 px-4 py-2 rounded-md mt-4 hover:bg-gray-500">
                 <a href={sdata.html_url} target="_blank">
-                  <span className="font-bold text-gray-900">View Profile</span>
+                  <span className="font-bold text-gray-900 ">View Profile</span>
                 </a>
               </button>
             </div>
