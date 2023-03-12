@@ -3,7 +3,7 @@ import UserContext from "../utilities/UserContext";
 import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
 
-const Followers = () => {
+const Following = () => {
   const [followers, setFollowers] = useState([]);
   const userContext = useContext(UserContext);
   const navigate = useNavigate();
@@ -63,4 +63,4 @@ const Followers = () => {
   );
 };
 
-export default Followers;
+export default Following;
