@@ -22,39 +22,46 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <div className="inline-block bg-slate-500">
-        <div className="flex flex-col item-center py-8">
-          <div className="rounded-full overflow-hidden w-32 h-32">
-            <img
-              className="object-cover object-center h-full w-full"
-              src={sdata.avatar_url}
-              alt="Avatar"
-            />
+      <div className="bg-gray-900 min-h-screen flex flex-col items-center justify-center">
+        <div className="max-w-sm rounded-lg overflow-hidden bg-gray-800 shadow-lg">
+          <div className="px-6 py-8">
+            <div className="flex flex-col items-center justify-center">
+              <div className="rounded-full overflow-hidden w-32 h-32">
+                <img
+                  className="object-cover object-center h-full w-full"
+                  src={sdata.avatar_url}
+                  alt="Avatar"
+                />
+              </div>
+              <div className="text-2xl font-bold text-gray-200 mt-4">
+                {sdata.name}
+              </div>
+              <div className="text-xl font-bold text-gray-400 mt-2">
+                @{sdata.login}
+              </div>
+              <div className="flex justify-evenly mt-4">
+                <Link to="/follower">
+                  <span className="font-semibold text-gray-200">
+                    Followers: {sdata.followers}
+                  </span>
+                </Link>
+                <Link to="/following">
+                  <span className="pl-10 font-semibold text-gray-200">
+                    Following: {sdata.following}
+                  </span>
+                </Link>
+              </div>
+              <div className="mt-4 text-gray-200">
+                Public Repos: {sdata.public_repos}
+              </div>
+              <button className="bg-gray-200 px-4 py-2 rounded-md mt-4">
+                <a href={sdata.html_url} target="_blank" rel="noreferrer">
+                  <span className="font-bold text-gray-900">View Profile</span>
+                </a>
+              </button>
+            </div>
           </div>
-          <div className="px-6 text-bold text-gray-200">{sdata.name}</div>
-          <div className="px-6 text-bold text-gray-400">@{sdata.login}</div>
-          <div className="flex justify-evenly mt-4">
-            <Link to="/follower">
-              <span className="font-semibold text-gray-200">
-                Followers: {sdata.followers}
-              </span>
-            </Link>
-            <Link to="/following">
-              <span className="pl-10 font-semibold text-gray-200">
-                Following: {sdata.following}
-              </span>
-            </Link>
-          </div>
-          <div className="mt-4 text-gray-200">
-            public Repos: {sdata.public_repos}
-          </div>
-          <button className="bg-gray-200 px-4 py-2 rounded-md mt-4">
-            <a href={sdata.html_url} target="_blank" rel="noreferrer">
-              <span className="font-bold text-slate-500">View profile</span>
-            </a>
-          </button>
         </div>
-        <div className="bg-gray-800 w-1/3 h-full"></div>
       </div>
     </>
   );
