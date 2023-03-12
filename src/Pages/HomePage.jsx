@@ -22,16 +22,12 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <div className="bg-gray-900 min-h-screen flex flex-col items-center justify-center">
-        <div className="max-w-sm rounded-lg overflow-hidden bg-gray-800 shadow-lg">
+      <div className="bg-gray-900 min-h-screen flex flex-row justify-center items-center">
+        <div className=" rounded-xl overflow-hidden bg-gray-800 shadow-lg">
           <div className="px-6 py-8">
             <div className="flex flex-col items-center justify-center">
               <div className="rounded-full overflow-hidden w-32 h-32">
-                <img
-                  className="object-cover object-center h-full w-full"
-                  src={sdata.avatar_url}
-                  alt="Avatar"
-                />
+                <img className="" src={sdata.avatar_url} alt="Avatar" />
               </div>
               <div className="text-2xl font-bold text-gray-200 mt-4">
                 {sdata.name}
@@ -55,7 +51,7 @@ const HomePage = () => {
                 Public Repos: {sdata.public_repos}
               </div>
               <button className="bg-gray-200 px-4 py-2 rounded-md mt-4">
-                <a href={sdata.html_url} target="_blank" rel="noreferrer">
+                <a href={sdata.html_url} target="_blank">
                   <span className="font-bold text-gray-900">View Profile</span>
                 </a>
               </button>

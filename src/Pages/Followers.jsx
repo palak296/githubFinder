@@ -27,7 +27,7 @@ const Followers = () => {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-slate-500 flex flex-col items-center justify-center">
+      <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center">
         <div className="bg-gray-800 w-full max-w-md rounded-md p-8">
           {followers.length > 0 ? (
             followers.map((follower) => (
